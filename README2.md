@@ -27,4 +27,4 @@ A portfolio website designed to both provide my personal information and demonst
 MIT
 
 ## Contact
-Dalton Wilkins - [wilkins.271@osu.edu](mailto:wilkins.271@osu.edu)
+Dalton Wilkins - wilkins.271@osu.edu
