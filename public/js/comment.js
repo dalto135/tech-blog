@@ -6,7 +6,7 @@ const commentFormHandler = async (event) => {
   
     if (content) {
       // Send a POST request to the API endpoint
-      const response = await fetch('/post', {
+      const response = await fetch('/api/comments', {
         method: 'POST',
         body: JSON.stringify({ content }),
         headers: { 'Content-Type': 'application/json' },
@@ -14,7 +14,7 @@ const commentFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the profile page
-        document.location.replace('/');
+        document.location.replace('/post');
       } else {
         alert(response.statusText);
       }
