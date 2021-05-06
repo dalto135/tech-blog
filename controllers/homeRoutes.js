@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -11,19 +11,19 @@ router.get('/', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        
       ],
     });
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
-
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      posts, 
+      posts,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
@@ -35,17 +35,46 @@ router.get('/post/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment,
+          // attributes: ['user_id']
+          // post_id: this.id
+        }
       ],
     });
 
+    // const commentData = await Comment.findByPk(req.params.id, {
+    //   include: [
+    //     {
+    //       model
+    //     }
+    //   ]
+    // })
+
     const post = postData.get({ plain: true });
+    // const comments = postData.map((comment) => comment.get({ plain: true }));
 
     res.render('post', {
       ...post,
+      // ...comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err.message);
+  }
+});
+
+router.post('/post/:id', withAuth, async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      ...req.body,
+      user_id: req.session.user_id,
+      post_id: req.session.post_id,
+    });
+
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(400).json(err.message);
   }
 });
 
@@ -65,7 +94,7 @@ router.get('/profile', withAuth, async (req, res) => {
       logged_in: true
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
