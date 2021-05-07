@@ -1,4 +1,5 @@
 const newFormHandler = async (event) => {
+  try {
   event.preventDefault();
 
   const title = document.querySelector('#post-name').value.trim();
@@ -20,9 +21,14 @@ const newFormHandler = async (event) => {
       alert('Failed to create post');
     }
   }
+
+} catch (err) {
+  res.status(500).json(err.message);
+}
 };
 
 const delButtonHandler = async (event) => {
+  try {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
@@ -36,6 +42,10 @@ const delButtonHandler = async (event) => {
       alert('Failed to delete post');
     }
   }
+
+} catch (err) {
+  res.status(500).json(err.message);
+}
 };
 
 document

@@ -1,4 +1,5 @@
 const loginFormHandler = async (event) => {
+  try {
   event.preventDefault();
 
   // Collect values from the login form
@@ -20,9 +21,14 @@ const loginFormHandler = async (event) => {
       alert(response.statusText);
     }
   }
+
+} catch (err) {
+  res.status(500).json(err.message);
+}
 };
 
 const signupFormHandler = async (event) => {
+  try {
   event.preventDefault();
 
   const name = document.querySelector('#name-signup').value.trim();
@@ -42,6 +48,10 @@ const signupFormHandler = async (event) => {
       alert(response.statusText);
     }
   }
+
+} catch (err) {
+  res.status(500).json(err.message);
+}
 };
 
 document

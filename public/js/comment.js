@@ -1,5 +1,6 @@
 
 const commentFormHandler = async (event) => {
+  try {
     event.preventDefault();
     console.log(event.target);
     // Collect values from the login form
@@ -22,6 +23,10 @@ const commentFormHandler = async (event) => {
         alert(response.statusText);
       }
     }
+
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
   };
 
 document
