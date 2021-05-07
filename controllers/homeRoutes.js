@@ -11,7 +11,6 @@ router.get('/', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
-        
       ],
     });
 
@@ -37,26 +36,21 @@ router.get('/post/:id', async (req, res) => {
         },
         {
           model: Comment,
-          // attributes: ['user_id']
-          // post_id: this.id
+          include: [
+            {
+              model: User,
+              attributes: ['name'],
+            }
+          ]
         }
       ],
     });
 
-    // const commentData = await Comment.findByPk(req.params.id, {
-    //   include: [
-    //     {
-    //       model
-    //     }
-    //   ]
-    // })
-
     const post = postData.get({ plain: true });
-    // const comments = postData.map((comment) => comment.get({ plain: true }));
+    console.log(post);
 
     res.render('post', {
       ...post,
-      // ...comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {

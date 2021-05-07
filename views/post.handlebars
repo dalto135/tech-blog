@@ -1,14 +1,14 @@
 <div class="text-center">
   <h2>{{title}}</h2>
-  <p>{{{get_emoji}}}</p>
   <p>{{content}}</p>
   <p class="post">Created by {{user.name}} on {{format_date date_created}}</p>
   {{#if comments.length}}
     {{#each comments as |comment| }}
       <div class="post">
-        <p>Comment: {{comment.content}}</p>
-        <p>Date posted: {{format_date comment.date_created}}</p>
-        <p>User ID: {{comment.user_id}}</p>
+        <p>Comment: {{content}}</p>
+        <p>Date posted: {{format_date date_created}}</p>
+        {{!-- <p>User ID: {{user_id}}</p> --}}
+        <p>User: {{user.name}}</p>
       </div>
     {{/each}}
   {{else}}
@@ -16,6 +16,8 @@
   {{/if}}
   <p>
     <input id="commentinput" placeholder="Comment">
-    <button class="btn btn-primary" id="commentbutton">Comment on this post!</button>
+    <button class="btn btn-primary" id="commentbutton" data-id="{{id}}">Comment on this post!</button>
   </p>
 </div>
+
+<script src="/js/comment.js"></script>

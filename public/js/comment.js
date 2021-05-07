@@ -1,12 +1,15 @@
+
 const commentFormHandler = async (event) => {
     event.preventDefault();
-  
+    console.log(event.target);
     // Collect values from the login form
     const content = document.querySelector('#commentinput').value.trim();
+    
   
-    if (content) {
+    if (content && event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id');
       // Send a POST request to the API endpoint
-      const response = await fetch('/api/comments', {
+      const response = await fetch(`/api/comments/${id}`, {
         method: 'POST',
         body: JSON.stringify({ content }),
         headers: { 'Content-Type': 'application/json' },
@@ -14,7 +17,7 @@ const commentFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the profile page
-        document.location.replace('/post');
+        document.location.replace(`/post/${id}`);
       } else {
         alert(response.statusText);
       }
