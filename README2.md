@@ -11,17 +11,19 @@
 [Contact](#Contact)
 
 ## Link
-https://dalto135.github.io/portfolio/
+https://intense-sea-31464.herokuapp.com/
 
 ## Technologies
-HTML and CSS
+Handlebars, express, node, nodemon, Javascript, MYSQL2, Sequelize, Bcrypt, Dotenv
 
 ## Description
-A portfolio website designed to both provide my personal information and demonstrate various skills using html and css. For the displayed work, I have the first group project completed in the bootcamp as well as two exemplary homework assignments. Links to the git pages and github sites are available in this section.
+A social networking website that allows users to create an account, make blog posts, and leave comments on posts others have made. Users can go to their personal dashboards, where they can see a list of posts they have made and are prompted to make new posts.
 
 ## Screenshots
-![Screenshot 1](assets/images/screenshot1.png)
-![Screenshot 2](assets/images/screenshot2.png)
+![Screenshot 1](Assets/images/screenshot1.png)
+![Screenshot 2](Assets/images/screenshot2.png)
+![Screenshot 3](Assets/images/screenshot3.png)
+
 
 ## License
 MIT
