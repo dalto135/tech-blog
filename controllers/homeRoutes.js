@@ -107,7 +107,7 @@ router.get('/updatepost/:id', withAuth, async (req, res) => {
   }
 });
 
-router.put('/updatepost/:id', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
   try {
     const postData = await Post.update(
       {

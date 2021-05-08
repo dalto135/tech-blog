@@ -1,11 +1,15 @@
 <h1>Update Post: {{post.title}}</h1>
 
-<p>Title:</p>
-<input id='post-title'>
+<form class='updateform'>
 
-<p>Content:</p>
-<input id='post-content'>
+    <p>Title:</p>
+    <input id='post-title'>
 
-<button id='updatebutton'>Update Post</button>
+    <p>Content:</p>
+    <input id='post-content'>
 
-<script src="/js/profile.js"></script>
+    <button data-id={{post.id}} id='updatebutton'>Update Post</button>
+</form>
+
+
+<script src="/js/updatepost.js"></script>
