@@ -30,8 +30,8 @@ const newFormHandler = async (event) => {
 //Delete a post
 const delButtonHandler = async (event) => {
   try {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+  if (event.target.hasAttribute('id')) {
+    const id = event.target.getAttribute('id');
     console.log(id);
 
     const response = await fetch(`/api/post/${id}`, {
@@ -42,8 +42,10 @@ const delButtonHandler = async (event) => {
       document.location.replace('/profile');
     } else {
       alert('Failed to delete post');
-      // console.log('nope');
+      console.log('response not ok');
     }
+  } else {
+    console.log('no data-id');
   }
 
 } catch (err) {
@@ -86,9 +88,9 @@ document
   .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('#deletebutton')
+  .querySelector('.deletebutton')
   .addEventListener('click', delButtonHandler);
 
-  document
+document
   .querySelector('#updatebutton')
   .addEventListener('click', updateButtonHandler);

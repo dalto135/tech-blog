@@ -109,11 +109,11 @@ router.get('/updatepost/:id', withAuth, async (req, res) => {
 
 router.put('/updatepost/:id', async (req, res) => {
   try {
-    const postData = await Post.update(
-      {
-        title: req.body.title,
-        content: req.body.content,
-      },
+    const postData = await Post.update(req.body,
+      // {
+      //   title: req.body.title,
+      //   content: req.body.content,
+      // },
       {
         where: {
           id: req.params.id,
