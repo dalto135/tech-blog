@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
       ],
     });
@@ -32,14 +32,14 @@ router.get('/post/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
         {
           model: Comment,
           include: [
             {
               model: User,
-              attributes: ['name'],
+              attributes: ['username'],
             }
           ]
         }
@@ -86,6 +86,46 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/updatepost/:id', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const postData = await Post.findByPk(req.params.id, {
+      attributes:  [ 'title', 'content' ] ,
+    });
+
+    const post = postData.get({ plain: true });
+
+    res.render('updatepost', {
+      post,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err.message);
+    console.log('nope');
+  }
+});
+
+router.put('/updatepost/:id', async (req, res) => {
+  try {
+    const postData = await Post.update(
+      {
+        title: req.body.title,
+        content: req.body.content,
+      },
+      {
+        where: {
+          id: req.params.id,
+        }
+      }
+    );
+
+
+    res.status(200).json(postData);
+  } catch {
+    res.status(500).json(err.message);
+  }
 });
 
 module.exports = router;

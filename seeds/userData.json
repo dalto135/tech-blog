@@ -1,17 +1,14 @@
 [
   {
-    "name": "Dalton Wilkins",
-    "email": "wilkins.271@osu.edu",
+    "username": "dalto135",
     "password": "asdfasdf"
   },
   {
-    "name": "Lernantino",
-    "email": "lernantino@gmail.com",
+    "username": "Lernantino",
     "password": "password12345"
   },
   {
-    "name": "Amiko",
-    "email": "amiko2k20@aol.com",
+    "username": "Amiko",
     "password": "password12345"
   }
 ]

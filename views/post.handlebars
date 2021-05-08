@@ -1,14 +1,13 @@
 <div class="text-center">
   <h2>{{title}}</h2>
   <p>{{content}}</p>
-  <p class="post">Created by {{user.name}} on {{format_date date_created}}</p>
+  <p class="post">Created by {{user.username}} on {{format_date date_created}}</p>
   {{#if comments.length}}
     {{#each comments as |comment| }}
       <div class="post">
         <p>Comment: {{content}}</p>
+        <p>User: {{user.username}}</p>
         <p>Date posted: {{format_date date_created}}</p>
-        {{!-- <p>User ID: {{user_id}}</p> --}}
-        <p>User: {{user.name}}</p>
       </div>
     {{/each}}
   {{else}}
