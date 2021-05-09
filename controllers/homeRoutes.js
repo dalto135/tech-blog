@@ -91,9 +91,7 @@ router.get('/login', (req, res) => {
 router.get('/updatepost/:id', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    const postData = await Post.findByPk(req.params.id, {
-      attributes:  [ 'title', 'content' ] ,
-    });
+    const postData = await Post.findByPk(req.params.id);
 
     const post = postData.get({ plain: true });
 
@@ -107,7 +105,7 @@ router.get('/updatepost/:id', withAuth, async (req, res) => {
   }
 });
 
-router.put('/update/:id', async (req, res) => {
+router.put('/update/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.update(
       {
@@ -123,7 +121,7 @@ router.put('/update/:id', async (req, res) => {
 
 
     res.status(200).json(postData);
-  } catch {
+  } catch (err) {
     res.status(500).json(err.message);
   }
 });

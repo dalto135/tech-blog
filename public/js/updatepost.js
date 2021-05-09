@@ -1,34 +1,33 @@
 //Update a post
 const updateButtonHandler = async (event) => {
-    const title = document.querySelector('#post-title').value.trim();
-    const content = document.querySelector('#post-content').value.trim();
-    try {
-    // if (title && content) {
-    if (title && content && event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
-      console.log(id);
-      console.log(title);
-      console.log(content);
+    const title = document.querySelector('#post-title').value;
+    const content = document.querySelector('#post-content').value;
+    const id = document.querySelector('#updatebutton').getAttribute('data-item');
+    // const id = document.querySelector('#update-item').getAttribute('data-item');
+
+
+    if (title && content) {
+      console.log('ID: ' + id);
+      console.log('Title: ' + title);
+      console.log('Content: ' + content);
+      
   
       const response = await fetch(`/update/${id}`, {
         method: 'PUT',
         body: JSON.stringify({ title, content }),
         headers: { 'Content-Type': 'application/json' },
       });
+
+      console.log('Response.ok: ' + response.ok);
   
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Failed to update post');
         console.log('Failed to update post');
       }
-    }
-  
-    } catch (err) {
-      res.status(500).json(err.message);
     }
   };
 
 document
-  .querySelector('.updateform')
-  .addEventListener('click', updateButtonHandler);
+  .querySelector('#updateform')
+  .addEventListener('submit', updateButtonHandler);

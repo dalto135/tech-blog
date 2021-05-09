@@ -1,6 +1,6 @@
 <h1>Update Post: {{post.title}}</h1>
 
-<form class='updateform'>
+<form  id='updateform'>
 
     <p>Title:</p>
     <input id='post-title'>
@@ -8,7 +8,7 @@
     <p>Content:</p>
     <input id='post-content'>
 
-    <button data-id={{post.id}} id='updatebutton'>Update Post</button>
+    <button type="submit" data-item="{{post.id}}" id='updatebutton'>Update Post</button>
 </form>
 
 
