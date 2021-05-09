@@ -27,6 +27,10 @@ document.addEventListener('keydown', function() {
   idleTime = 0;
 });
 
+document.addEventListener('keyup', function() {
+  idleTime = 0;
+});
+
 //The user is logged out if their screen is idle for 5 minutes
 function timerIncrement() {
   idleTime = idleTime + 1;
