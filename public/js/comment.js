@@ -2,7 +2,6 @@
 const commentFormHandler = async (event) => {
   try {
     event.preventDefault();
-    console.log(event.target);
     // Collect values from the login form
     const content = document.querySelector('#commentinput').value.trim();
     

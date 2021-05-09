@@ -1,24 +1,297 @@
-header, .post:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+/* Creates a thin border and even spacing around every element */
+* {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 4px;
+    padding: 4px;
+    font-family: eurostile, sans-serif;
+    font-weight: normal;
+    color: black;
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+/* Color variables defined */
+:root {
+    --grey: rgb(32, 32, 40);
+    --blue: rgb(0, 0, 64);
+    --teal: rgb(0, 80, 80);
+    --green: rgb(0, 128, 64);
+    --mint: rgb(0, 192, 96);
+    --red: rgb(128, 0, 64);
+
+    --cloudy: rgba(255, 255, 255, 0.5);
+    --pastelGreen: rgba(144, 223, 160, 0.75);
+    --pastelBlue: rgba(128, 186, 255, 0.75);
+    --pastelRed: rgba(223, 144, 174, 0.75);
+    --pastelTeal: rgba(128, 206, 206, 0.75);
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+/* Sets initial parameters around each type of tag used in the html doc */
+html {
+    background-color: var(--grey);
+    border-width: 0;
+    margin: 0;
+    padding: 0;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+body {
+    border-color: var(--blue);
+}
+
+header {
+    display: flex;
+    border-color: rgb(0, 80, 107);
+}
+
+section {
+    display: flex;
+    border-color: var(--green);
+}
+
+div,
+address {
+    align-items: center;
+    border-color: var(--green);
+    flex: 1 1;
+}
+
+footer {
+    border-color: var(--teal);
+    text-align: center;
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+address {
+    justify-content: space-evenly;
+}
+
+address,
+footer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 24pt;
+    background-color: var(--pastelGreen);
+}
+
+h2 {
+    font-size: 18pt;
+}
+
+p {
+    font-size: 16pt;
+    background: var(--cloudy);
+}
+
+a {
+    text-decoration-line: none;
+    background-color: var(--cloudy);
+    font-size: 18pt;
+}
+
+.small a {
+    font-size: 24pt;
+}
+
+/* Places a gradient image on link elements when they are hovered over with the cursor */
+a:hover {
+    color: white;
+    background-image: linear-gradient(var(--mint),
+            var(--blue));
+    text-shadow: 2px 2px 2px black;
+}
+
+/* Specifies text attributes and layout for individual elements */
+#image {
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-image: url("../images/solarpunk.png");
+    height: 150px;
+    border-color: black;
+}
+
+#image h1 {
+    background-color: var(--cloudy);
+}
+
+.title {
+    flex: 0.3 0.3;
+    text-align: right;
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.title h1 {
+    font-size: 4vw;
+}
+
+.content {
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#work {
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#work h2 {
+    flex: 1 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#name {
+    border-width: 0;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    flex: 1 1;
+}
+
+#name h1 {
+    font-size: 4vw;
+    border-color: black;
+    background-color: var(--pastelBlue);
+}
+
+#shortcuts {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex: 2 2;
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#me {
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.big {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Placeholder images for future projects */
+#wow {
+    background-image: url("../images/36375566_1950022561967371_1912403655345045504_o.jpg");
+}
+
+#project {
+    background-image: url("../images/r775562_6639716.jpg");
+}
+
+#code {
+    background-image: url("../images/super-trees-gardens-bay-singapore-105551731.jpg");
+}
+
+#pollution {
+    background-image: url("../images/7f1e0d2ac3bd87d6f57f73492d3bf6d1.jpg");
+}
+
+#spicy {
+    background-image: url("../images/1033b72b0d4c935ac1151d8cecddac8e.jpg");
+}
+
+#me,
+footer a {
+    flex: 1 1;
+}
+
+.project {
+    border: 0;
+    padding: 0;
+    display: flex;
+}
+
+img:hover {
+    border-color: rgb(144, 223, 160);
+    box-shadow: 2px 2px 2px black;
+}
+
+.small {
+    justify-content: flex-end;
+    border: 1px solid black;
+    margin: 4px;
+    padding: 4px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.small img {
+    max-width: 100%;
+    flex: 1 1;
+    padding: 0;
+    margin: 0;
+}
+
+.big a {
+    font-size: 16pt;
+}
+
+/* Organization of elements changes at varying screen widths */
+@media screen and (max-width: 980px) {
+
+    header,
+    section,
+    #work {
+        display: block;
+    }
+
+    #name {
+        text-align: center;
+    }
+
+    #shortcuts {
+        justify-content: center;
+    }
+
+    .title {
+        text-align: left;
+    }
+    
+    #image {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .big {
+        display: block;
+    }
+
+    a, .small a {
+        font-size: 16pt;
+    }
+
+    #contact-me .content {
+        flex-direction: column;
+    }
+
+    #image, .small {
+        justify-content: center;
+    }
+
+    #image h1 {
+        font-size: 18pt;
+    }
+
+    .title {
+        text-align: center;
+    }
 }

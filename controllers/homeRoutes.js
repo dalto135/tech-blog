@@ -101,7 +101,6 @@ router.get('/updatepost/:id', withAuth, async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err.message);
-    console.log('nope');
   }
 });
 

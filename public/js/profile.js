@@ -32,7 +32,6 @@ const delButtonHandler = async (event) => {
   try {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-    console.log(id);
 
     const response = await fetch(`/api/post/${id}`, {
       method: 'DELETE',
@@ -42,7 +41,6 @@ const delButtonHandler = async (event) => {
       document.location.replace('/profile');
     } else {
       alert('Failed to delete post');
-      console.log('response not ok');
     }
   } else {
     console.log('no data-id');
