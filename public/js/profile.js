@@ -1,30 +1,30 @@
 //Create a post
 const newFormHandler = async (event) => {
   try {
-  event.preventDefault();
+    event.preventDefault();
 
-  const title = document.querySelector('#post-name').value.trim();
-  const content = document.querySelector('#post-desc').value.trim();
+    const title = document.querySelector('#post-name').value.trim();
+    const content = document.querySelector('#post-desc').value.trim();
 
-  if (title && content) {
-    const response = await fetch(`/api/post`, {
-      method: 'POST',
-      body: JSON.stringify({ title, content }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    if (title && content) {
+      const response = await fetch(`/api/post`, {
+        method: 'POST',
+        body: JSON.stringify({ title, content }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create post');
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to create post');
+      }
     }
-  }
 
-} catch (err) {
-  res.status(500).json(err.message);
-}
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
 };
 
 //Delete a post
