@@ -1,5 +1,7 @@
 //Update a post
 const updateButtonHandler = async (event) => {
+  event.preventDefault();
+
   const title = document.querySelector('#post-title').value;
   const content = document.querySelector('#post-content').value;
   const id = document.querySelector('#updatebutton').getAttribute('data-item');
@@ -17,16 +19,17 @@ const updateButtonHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    console.log('Response.ok: ' + response.ok);
-  
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
+    // console.log('Response.ok: ' + response.ok);
+    // alert('response.ok');
+
+    document.location.replace('/profile');
+    if (!response.ok) {
       console.log('Failed to update post');
+      alert('!response.ok')
     }
   }
 };
 
 document
   .querySelector('#updateform')
-  .addEventListener('submit', updateButtonHandler);
+  .addEventListener('click', updateButtonHandler);
