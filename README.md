@@ -29,4 +29,4 @@ A social networking website that allows users to create an account, make blog po
 MIT
 
 ## Contact
-Dalton Wilkins - wilkins.271@osu.edu
+Dalton Wilkins - daltongh@gmail.com
