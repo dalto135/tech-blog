@@ -17,7 +17,7 @@ https://intense-sea-31464.herokuapp.com/
 Handlebars, express, node, nodemon, Javascript, MYSQL2, Sequelize, Bcrypt, Dotenv
 
 ## Description
-A social networking website that allows users to create an account, make blog posts, and leave comments on posts others have made. Users can go to their personal dashboards, where they can see a list of posts they have made and are prompted to make new posts.
+A social networking website that allows users to gather together and discuss their favorite tech topics. Users can create an account, make blog posts, and leave comments on posts others have made. They can also go to their personal dashboards, where they can see a list of posts they have made and are prompted to make new posts.
 
 ## Screenshots
 ![Screenshot 1](Assets/images/screenshot1.png)
